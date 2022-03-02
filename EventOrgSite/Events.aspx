@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Default.Master" AutoEventWireup="true" CodeBehind="Events.aspx.cs" Inherits="EventOrgSite.Events" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/UserMasterPage.Master" AutoEventWireup="true" CodeBehind="Events.aspx.cs" Inherits="EventOrgSite.Events" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
     <!-- Bootstrap CSS -->
@@ -10,26 +10,19 @@
 	<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
+
+
+
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-
-    <asp:UpdatePanel ID="UpdatePanel1" runat="server">
-        <ContentTemplate>
-
-            <nav>
-
-            </nav>
+            <!-- Navbar er i UserMaterPage.Master -->
 
             <div id="ContentDiv" runat="server">
 
-                <!-- Alt her inde bliver generated I Events.aspc.cs -->
+                <!-- Alle events bliver lavet i Events.aspx.cs -->
 
             </div>
-
-            
-        </ContentTemplate>
-    </asp:UpdatePanel>
 
 </asp:Content>
