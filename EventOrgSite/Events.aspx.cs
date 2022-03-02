@@ -12,11 +12,16 @@ namespace EventOrgSite
     public partial class Events : System.Web.UI.Page
     {
 
+        public bool isAdmin = false;
+
         static List<OrginizedEvent> events = new List<OrginizedEvent>();
 
         public static void EventList()
         {
             events.Clear();
+
+            //foreach loop senere
+            //når data basen er connected
             for(int i = 0; i < 100; i++)
             {
                 OrginizedEvent orgEvent = new OrginizedEvent();
@@ -96,6 +101,15 @@ namespace EventOrgSite
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if(isAdmin == true)
+            {
+                CreateEvent.Visible = true;
+            }
+            else
+            {
+                CreateEvent.Visible = false;
+            }
+
             if(events.Count == 0) {
             EventList();
             events.Reverse();

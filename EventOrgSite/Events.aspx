@@ -10,19 +10,27 @@
 	<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-
-
-
+    <!-- Event CSS -->
+    <link rel="stylesheet" href="../CSS/Event.css">
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
             <!-- Navbar er i UserMaterPage.Master -->
+            
+            <div class="row" id="SiteContent">
+                <div class="col-2">
 
-            <div id="ContentDiv" runat="server">
+                </div>
 
-                <!-- Alle events bliver lavet i Events.aspx.cs -->
+                <div class="col-8" id="ContentDiv" runat="server">
+                    <!-- Alle events bliver lavet i Events.aspx.cs -->                
 
+                </div>
+
+                <div class="col-2">
+                    <button type="button" class="btn btn-primary sticky-top" style="top: 10%; transform:translateX(50%); position: fixed"  id="CreateEvent" runat="server">Create Event</button>
+                </div>
             </div>
 
 </asp:Content>
