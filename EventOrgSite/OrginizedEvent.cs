@@ -7,6 +7,7 @@ namespace EventOrgSite
 {
     public partial class OrginizedEvent
     {
+        public int EventId;
         public string EventTitle;
         public int Participants;
         public DateTime CreatedDate;

@@ -70,11 +70,13 @@
     <Content Include="CSS\Event.css" />
     <Content Include="CSS\ForgotPassword.css" />
     <Content Include="CSS\Login.css" />
+    <Content Include="CSS\ProfilePassword.css" />
     <Content Include="CSS\Test.css" />
     <Content Include="Default.aspx" />
     <Content Include="Events.aspx" />
     <Content Include="ForgotPassword.aspx" />
     <Content Include="JS\Login.js" />
+    <Content Include="ProfilePassword.aspx" />
     <Content Include="ResetPassword.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -107,6 +109,13 @@
     </Compile>
     <Compile Include="ForgotPassword.aspx.designer.cs">
       <DependentUpon>ForgotPassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ProfilePassword.aspx.cs">
+      <DependentUpon>ProfilePassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProfilePassword.aspx.designer.cs">
+      <DependentUpon>ProfilePassword.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ResetPassword.aspx.cs">

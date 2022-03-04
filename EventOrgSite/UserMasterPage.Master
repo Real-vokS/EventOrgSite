@@ -6,11 +6,9 @@
 <head runat="server">
     <title></title>
     <asp:ContentPlaceHolder ID="head" runat="server">
-
-
     </asp:ContentPlaceHolder>
 </head>
-<body>
+<body style="max-width:100%; overflow-x:hidden;">
     <form id="form1" runat="server">
         <div>
             
@@ -21,18 +19,16 @@
 
             <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
                 <div class="container-fluid">
-                    <a class="navbar-brand" href="#">SKP Vordingborg</a>
+                    <a class="navbar-brand" href="#">SOC Vordingborg</a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
 
                     <div class="collapse navbar-collapse" id="navbarNavDropdown">
                         <ul class="navbar-nav">
-
                             <li class="nav-item">
-                                <a class="nav-link" aria-current="page" href="#">Events</a>
+                                <a class="nav-link" aria-current="page" href="../Events.aspx">Events</a>
                             </li>
-
                         </ul>
                         
                         <ul class="navbar-nav" style="margin-left: auto;">
@@ -41,7 +37,7 @@
                                     <img src="https://cdn3.iconfinder.com/data/icons/vector-icons-6/96/256-512.png" height="25" width="25" />
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                                    <li><a class="dropdown-item" href="#">Profile</a></li>
+                                    <li><a class="dropdown-item" href="../ProfilePassword.aspx">Profile</a></li>
                                     <li><a class="dropdown-item" href="#">something</a></li>
                                     <li><a class="dropdown-item" href="#">Sign out</a></li>
                                 </ul>

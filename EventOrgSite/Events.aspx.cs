@@ -26,6 +26,7 @@ namespace EventOrgSite
             {
                 OrginizedEvent orgEvent = new OrginizedEvent();
 
+                orgEvent.EventId = i;
                 orgEvent.EventTitle = (i + 1).ToString();
                 orgEvent.Participants = 20 + i;
                 orgEvent.CreatedDate = DateTime.Now;
@@ -33,8 +34,6 @@ namespace EventOrgSite
 
                 events.Add(orgEvent);
             }
-
-
         }
 
         static string getDivElements()
@@ -84,7 +83,7 @@ namespace EventOrgSite
 
                     writer.AddAttribute(HtmlTextWriterAttribute.Class, classValueH5);
                     writer.RenderBeginTag(HtmlTextWriterTag.P);
-                    writer.Write("Dette er en beskrivelse af event nummer " + orgEvent.EventTitle + " hvor der står alt mugligt om dette event og nu fylder jeg bare teksten ud så det ser nogenlunde godt ud tror jeg men er ikke helt sikker så der er bare tekst ligenu.");
+                    writer.Write("Dette er en beskrivelse af event nummer " + orgEvent.EventTitle + " hvor der står alt muligt om dette event og nu fylder jeg bare teksten ud så det ser ud som der står noget vigtigt her men det gør der faktisk slet ikke :)");
                     writer.RenderEndTag();
 
                     writer.RenderBeginTag(HtmlTextWriterTag.Small);
@@ -110,9 +109,12 @@ namespace EventOrgSite
                 CreateEvent.Visible = false;
             }
 
-            if(events.Count == 0) {
             EventList();
-            events.Reverse();
+
+
+            if(events.FirstOrDefault().EventId < events.LastOrDefault().EventId)
+            {
+                events.Reverse();
             }
 
 

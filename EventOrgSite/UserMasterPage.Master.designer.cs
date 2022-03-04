@@ -23,6 +23,7 @@ namespace EventOrgSite
         /// </remarks>
         protected global::System.Web.UI.WebControls.ContentPlaceHolder head;
 
+        
         /// <summary>
         /// form1 control.
         /// </summary>
