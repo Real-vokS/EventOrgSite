@@ -9,7 +9,7 @@
 
     <!-- Login CSS -->
     <link rel="stylesheet" href="../CSS/Login.css">
-    <link rel="stylesheet" href="../CSS/Test.css">
+    <link rel="stylesheet" href="../CSS/CenterLogin.css">
 
 	<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 	<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
@@ -60,7 +60,7 @@
 			</div>
 		</div>
 	</div>
-
+		</div>
 	<!-- Login JS -->
     <script src="./JS/Login.js"></script>
 

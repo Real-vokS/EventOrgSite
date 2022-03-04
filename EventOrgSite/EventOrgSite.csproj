@@ -71,7 +71,7 @@
     <Content Include="CSS\ForgotPassword.css" />
     <Content Include="CSS\Login.css" />
     <Content Include="CSS\ProfilePassword.css" />
-    <Content Include="CSS\Test.css" />
+    <Content Include="CSS\CenterLogin.css" />
     <Content Include="Default.aspx" />
     <Content Include="Events.aspx" />
     <Content Include="ForgotPassword.aspx" />
