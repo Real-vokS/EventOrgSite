@@ -77,6 +77,7 @@
     <Content Include="EventPage.aspx" />
     <Content Include="Events.aspx" />
     <Content Include="ForgotPassword.aspx" />
+    <Content Include="JS\AddRowDescription.js" />
     <Content Include="JS\Login.js" />
     <Content Include="JS\EventOptions.js" />
     <Content Include="ProfilePassword.aspx" />

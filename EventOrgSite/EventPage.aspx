@@ -27,10 +27,11 @@
         <div class="col" id="Left-Side" style=" margin-left: 30px;">
             
             <h3 class="card-title">PlaceHolder</h3>
-            <div class="card" style="width: 40rem;">
-                <div class="card-body" id="EventDescription">
-                    <p class="card-text">Some placeholder shit that can do other shit</p>
-                </div>
+            <div style="width: 40rem;">
+                    <div id="EventDescription">
+                        <label style="font-weight: bold; margin-top: 30px">Event Beskrivelse</label>
+                        <textarea class="form-control" id="textArea" oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"' style="overflow:hidden; resize:none; background-color:#FFF !important" ></textarea>
+                    </div>
             </div>
 
             <div style="margin-top: 40px; width: 40rem">
@@ -45,7 +46,7 @@
 
 
 
-        <div class="col" id="RightSide" runat="server" style="margin-top: 144px; padding: 0px 80px 40px 0px">
+        <div class="col" id="RightSide" runat="server" style="margin-top: 120px; padding: 0px 80px 40px 0px">
 
             <!-- Event Options bliver lavet i Create Event -->
 
