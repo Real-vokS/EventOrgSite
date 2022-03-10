@@ -68,14 +68,17 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="CSS\Event.css" />
+    <Content Include="CSS\EventPage.css" />
     <Content Include="CSS\ForgotPassword.css" />
     <Content Include="CSS\Login.css" />
     <Content Include="CSS\ProfilePassword.css" />
     <Content Include="CSS\CenterLogin.css" />
     <Content Include="Default.aspx" />
+    <Content Include="EventPage.aspx" />
     <Content Include="Events.aspx" />
     <Content Include="ForgotPassword.aspx" />
     <Content Include="JS\Login.js" />
+    <Content Include="JS\EventOptions.js" />
     <Content Include="ProfilePassword.aspx" />
     <Content Include="ResetPassword.aspx" />
     <Content Include="Web.config" />
@@ -94,6 +97,13 @@
     </Compile>
     <Compile Include="Default.Master.designer.cs">
       <DependentUpon>Default.Master</DependentUpon>
+    </Compile>
+    <Compile Include="EventPage.aspx.cs">
+      <DependentUpon>EventPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EventPage.aspx.designer.cs">
+      <DependentUpon>EventPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Events.aspx.cs">
       <DependentUpon>Events.aspx</DependentUpon>
