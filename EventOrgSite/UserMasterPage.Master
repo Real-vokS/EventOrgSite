@@ -1,7 +1,6 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="UserMasterPage.master.cs" Inherits="EventOrgSite.UserMasterPage" %>
 
 <!DOCTYPE html>
-
 <html>
 <head runat="server">
     <title></title>

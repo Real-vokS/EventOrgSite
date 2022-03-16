@@ -1,7 +1,7 @@
 ﻿$(document).ready(function () {
     var i = 1;
     $("#add_row").click(function () {
-        $('#addr' + i).html("<td>" + (i + 1) + "</td><td><input name='name" + i + "' type='text' placeholder='Name' class='form-control input-md'  /> </td><td><input  name='amount" + i + "' type='text' placeholder='Amount'  class='form-control input-md'></td>");
+        $('#addr' + i).html("<td>" + (i + 1) + "</td><td><input name='name" + i + "' type='text' placeholder='Name' class='form-control input-md'  /> </td><td><input  name='amount" + i + "' type='number' placeholder='Amount' min='0' step='1' max='2' class='form-control'></td>");
 
         $('#tab_logic').append('<tr id="addr' + (i + 1) + '"></tr>');
         i++;

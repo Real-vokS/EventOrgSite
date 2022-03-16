@@ -10,6 +10,17 @@ namespace EventOrgSite
 {
     public partial class EventPage : System.Web.UI.Page
     {
+        int options = 0;
+        static int maxAmount = 5;
+
+        string[] thLabel = { "#", "Name", "Amount" };
+
+        static bool isAdmin = true;
+        bool hasOptions = true;
+        bool EventCreation = true;
+
+        static List<OptionRows> optRow = new List<OptionRows>();
+
 
         static List<OrginizedEvent> events = new List<OrginizedEvent>();
 
@@ -41,12 +52,6 @@ namespace EventOrgSite
 
             using (HtmlTextWriter writer = new HtmlTextWriter(sw))
             {
-                string classValueDiv1 = "container";
-                string classValueDiv2 = "row clearfix";
-                string classValueDiv3 = "col-md-12 column";
-
-                string classValueTable1 = "table table-bordered table-hover";
-                string idValueTable1 = "tab_logic";
 
                 string classValueTh1 = "text-center";
 
@@ -59,51 +64,6 @@ namespace EventOrgSite
                 string classValueA2 = "pull-right btn btn-default";
 
                 string classValueInput1 = "form-control";
-
-
-                //start of 1st div
-                writer.AddAttribute(HtmlTextWriterAttribute.Class, classValueDiv1);
-                writer.RenderBeginTag(HtmlTextWriterTag.Div);
-
-                //start of 2nd div
-                writer.AddAttribute(HtmlTextWriterAttribute.Class, classValueDiv2);
-                writer.RenderBeginTag(HtmlTextWriterTag.Div);
-
-                //start of 3rd div
-                writer.AddAttribute(HtmlTextWriterAttribute.Class, classValueDiv3);
-                writer.RenderBeginTag(HtmlTextWriterTag.Div);
-
-                //start of table
-                writer.AddAttribute(HtmlTextWriterAttribute.Class, classValueTable1);
-                writer.AddAttribute(HtmlTextWriterAttribute.Id, idValueTable1);
-                writer.RenderBeginTag(HtmlTextWriterTag.Table);
-
-                //start of thead
-                writer.RenderBeginTag(HtmlTextWriterTag.Thead);
-
-                //start of tr
-                writer.RenderBeginTag(HtmlTextWriterTag.Tr);
-
-                //start of th #
-                writer.AddAttribute(HtmlTextWriterAttribute.Class, classValueTh1);
-                writer.RenderBeginTag(HtmlTextWriterTag.Th);
-                writer.Write("#");
-                writer.RenderEndTag(); //end of th #
-
-                //start of th Option Name
-                writer.AddAttribute(HtmlTextWriterAttribute.Class, classValueTh1);
-                writer.RenderBeginTag(HtmlTextWriterTag.Th);
-                writer.Write("Option Name");
-                writer.RenderEndTag(); //end of th Option Name
-
-                //start of th Amount
-                writer.AddAttribute(HtmlTextWriterAttribute.Class, classValueTh1);
-                writer.RenderBeginTag(HtmlTextWriterTag.Th);
-                writer.Write("Amount");
-                writer.RenderEndTag(); //end of th Amount
-
-                writer.RenderEndTag(); //end of tr
-                writer.RenderEndTag(); //end of thead
 
                 //start of Tbody
                 writer.RenderBeginTag(HtmlTextWriterTag.Tbody);
@@ -131,9 +91,12 @@ namespace EventOrgSite
                 //start of td Option Name
                 writer.RenderBeginTag(HtmlTextWriterTag.Td);
                 //start of input
-                writer.AddAttribute(HtmlTextWriterAttribute.Type, "text");
+                writer.AddAttribute(HtmlTextWriterAttribute.Type, "number");
                 writer.AddAttribute(HtmlTextWriterAttribute.Name, "amount0");
                 writer.AddAttribute("placeholder", "Amount");
+                writer.AddAttribute("max", $"{maxAmount}");
+                writer.AddAttribute("min", "0");
+                writer.AddAttribute("step", "1");
                 writer.AddAttribute(HtmlTextWriterAttribute.Class, classValueInput1);
                 writer.RenderBeginTag(HtmlTextWriterTag.Input);
                 writer.RenderEndTag(); //end of input
@@ -151,28 +114,16 @@ namespace EventOrgSite
                 writer.RenderEndTag(); //end of 3rd div
                 writer.RenderEndTag(); //end of 2nd div
 
-                //start of a add_row
-                writer.AddAttribute(HtmlTextWriterAttribute.Id, idValueA1);
-                writer.AddAttribute(HtmlTextWriterAttribute.Class, classValueA1);
-                writer.RenderBeginTag(HtmlTextWriterTag.A);
-                writer.Write("Add Row");
-                writer.RenderEndTag(); //end of a add_row
 
-                //start of a delete_row
-                writer.AddAttribute(HtmlTextWriterAttribute.Id, idValueA2);
-                writer.AddAttribute(HtmlTextWriterAttribute.Class, classValueA2);
-                writer.RenderBeginTag(HtmlTextWriterTag.A);
-                writer.Write("Delete Row");
-                writer.RenderEndTag(); //end of a delete_row
 
                 writer.RenderEndTag(); //end of 1st div
+
             }
             return sw.ToString();
         }
 
-            protected void Page_Load(object sender, EventArgs e)
-            {
-
+        protected void Page_Load(object sender, EventArgs e)
+        {
                 EventList();
 
 
@@ -181,8 +132,118 @@ namespace EventOrgSite
                     events.Reverse();
                 }
 
-                RightSide.InnerHtml = getDivElements();
-
+            if (EventCreation == true)
+            {
+                participate.Visible = false;
+                cEvent.Visible = true;
             }
+            else
+            {
+                participate.Visible = true;
+                cEvent.Visible = false;
+            }
+
+            if(optRow.Count > 0) {
+            options = optRow.Last().Id;
+            }
+
+            dt.Rows.Add(CreateTableHead());
+
+            if (!this.IsPostBack)
+            {
+                System.Data.DataTable dt = new System.Data.DataTable();
+                dt.Columns.AddRange(new System.Data.DataColumn[3]{
+                    new System.Data.DataColumn("#"),
+                    new System.Data.DataColumn("Name"),
+                    new System.Data.DataColumn("Amount") });
+
+
+                string addRowText = optionName.Text;
+                string addAmountText = optionAmount.Text;
+
+                dt.Rows.Add(1, addRowText, addAmountText);
+
+
+                gridService.DataSource = dt;
+                gridService.DataBind();
+                gridService.UseAccessibleHeader = true;
+            }
+            
+        }
+
+        void showTableRows()
+        {
+            foreach (var item in optRow)
+            {
+                TableRow row = new TableRow();
+                TableCell cell_id = new TableCell();
+                cell_id.Text = item.Id.ToString();
+                row.Cells.Add(cell_id);
+
+                TableCell cell_name = new TableCell();
+                TextBox name = new TextBox();
+                cell_name.Controls.Add(name);
+                name.Text = item.Name;
+                row.Cells.Add(cell_name);
+
+                TableCell cell_amount = new TableCell();
+                TextBox amount = new TextBox();
+                amount.TextMode = TextBoxMode.Number;
+                cell_amount.Controls.Add(amount);
+                amount.Text = item.MaxAmount.ToString();
+                row.Cells.Add(cell_amount);
+
+                dt.Rows.Add(row);
+            }
+
+        }
+
+        TableHeaderRow CreateTableHead()
+        {
+            TableHeaderRow thRow = new TableHeaderRow();
+            foreach (var item in thLabel)
+            {
+                TableHeaderCell thCell = new TableHeaderCell();
+                thCell.Text = item;
+                thCell.CssClass = "text-center";
+                thCell.Scope = TableHeaderScope.Column;
+                thRow.Cells.Add(thCell);
+            }
+            return thRow;
+        }
+
+        protected void AddRow_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+            }
+
+            if (optRow.Count > 0)
+            {
+                foreach(var option in optRow)
+                {
+                }
+            }
+
+
+
+            OptionRows oRow = new OptionRows();
+            oRow.Id = Convert.ToInt32(options + 1);
+            optRow.Add(oRow);
+
+            showTableRows();
+            
+        }
+
+        protected void DeleteRow_Click(object sender, EventArgs e)
+        {
+            if (optRow.Count > 0)
+            {
+                optRow.RemoveAt(optRow.Count - 1);
+            }
+
+            showTableRows();
+
         }
     }
+}

@@ -54,8 +54,6 @@
 				</div>
 				<input type="text" placeholder="Username">
 				<input type="text" placeholder="Email">
-				<input type="password" placeholder="Password">
-				<input type="password" placeholder="Confirm Password">
 				<input type="button" value="Register">
 			</div>
 		</div>
