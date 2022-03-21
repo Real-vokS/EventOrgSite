@@ -7,7 +7,7 @@ namespace EventOrgSite
 {
     public class Option
     {
-        string name;
-        int maxAmount;
+        public string name;
+        public int maxAmount;
     }
 }

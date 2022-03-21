@@ -1,14 +1,14 @@
 ﻿$(document).ready(function () {
     var i = 1;
-    $("#add_row").click(function () {
-        $('#addr' + i).html("<td>" + (i + 1) + "</td><td><input name='name" + i + "' type='text' placeholder='Name' class='form-control input-md'  /> </td><td><input  name='amount" + i + "' type='number' placeholder='Amount' min='0' step='1' max='2' class='form-control'></td>");
+    $("#addrow").click(function () {
+        $('#ContentPlaceHolder1_tablogic').append('<tr id="addr' + (i + 1) + '"></tr>');
+        $('#addr' + (i + 1)).html("<td class='text-center'>" + (i + 1) + "</td><td><input id='addr" + i + "_name' name='name" + i + "' type='text' placeholder='Name' class='form-control input-md'  /> </td><td><input id='addr" + i + "_amount' name='amount" + i + "' type='number' placeholder='Amount' min='0' step='1' class='form-control input-md'></td>");
 
-        $('#tab_logic').append('<tr id="addr' + (i + 1) + '"></tr>');
         i++;
     });
-    $("#delete_row").click(function () {
+    $("#deleterow").click(function () {
         if (i > 1) {
-            $("#addr" + (i - 1)).html('');
+            $("#addr" + (i)).html('');
             i--;
         }
     });

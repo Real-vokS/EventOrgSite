@@ -42,58 +42,40 @@ namespace EventOrgSite
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl rightSide;
 
         /// <summary>
-        /// eventOptions control.
+        /// tablogic control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl eventOptions;
+        protected global::System.Web.UI.HtmlControls.HtmlTable tablogic;
 
         /// <summary>
-        /// gridService control.
+        /// addr0 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gridService;
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow addr0;
 
         /// <summary>
-        /// dt control.
+        /// addr1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Table dt;
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow addr1;
 
         /// <summary>
-        /// optionName control.
+        /// optionButtons control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox optionName;
-
-        /// <summary>
-        /// optionAmount control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox optionAmount;
-
-        /// <summary>
-        /// dRow control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button dRow;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl optionButtons;
 
         /// <summary>
         /// eventButtons control.

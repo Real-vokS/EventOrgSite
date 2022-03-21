@@ -111,7 +111,6 @@
       <DependentUpon>Events.aspx</DependentUpon>
     </Compile>
     <Compile Include="Option.cs" />
-    <Compile Include="OptionRows.cs" />
     <Compile Include="OrginizedEvent.cs" />
     <Compile Include="ForgotPassword.aspx.cs">
       <DependentUpon>ForgotPassword.aspx</DependentUpon>
